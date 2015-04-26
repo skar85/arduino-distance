@@ -73,6 +73,8 @@ void sonic_sensor_print_reads(){
   }
   Serial.print(":\n");
  
+ 
+  delay(500);
   Serial.print(SONIC_SENSOR_OFFSET);
   Serial.print("\n");
   
