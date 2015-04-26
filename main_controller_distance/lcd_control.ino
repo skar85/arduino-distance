@@ -95,7 +95,9 @@ float lcd_get_sensor_height(){
   lcd_print(1, "          cm" );
   lcd_print_int_as_float(value_cm);
   int steps = 0; 
+  int previous = 0;
   while(!accepted){
+    previous = value_cm;
     lcd_key = lcd_read_button();
     //lcd_pressed_button();
     switch (lcd_key){
@@ -125,7 +127,9 @@ float lcd_get_sensor_height(){
         break;
       }
     } 
-    lcd_print_int_as_float(value_cm); 
+    if(value_cm != previous){
+       lcd_print_int_as_float(value_cm);
+    } 
     delay(lcd_delay);
   }
   return (float)value_cm/10;
